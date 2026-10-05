@@ -51,5 +51,14 @@ Ask a question, then ask follow-ups such as *"What about its charging network?"*
 - Models differ in how reliably they call tools. The tool names and prompts were adjusted after testing.
 - AI-generated figures should be checked against the cited source pages before use. Page numbers refer to PDF page positions in the original report.
 
+
+## Known limitations
+- **AI-written reports need verification.** In testing, the Writer sometimes combined figures that were not comparable (for example a full-year share with a half-year ranking) or drew conclusions the sources did not state. The prompts were tightened, but every figure should still be checked against the cited page.
+- **Mixed time periods.** Web results mix calendar-year, half-year, and monthly figures, while the annual report uses the fiscal year. The Reviewer flags these mismatches but cannot always resolve them.
+- **Page citations** refer to PDF page positions in the original report, which can differ from the printed page numbers.
+- **Keyword retrieval.** BM25 matches exact words, not meaning, so some relevant passages can be missed. Embeddings and a vector store are the next improvement.
+- **Rate limits.** Free-tier APIs slow each question to several minutes.
+- **Web sources vary in quality.** Search snippets can come from forums or social posts, so web claims are less reliable than report claims.
+
 ## Tech stack
 Python, LangChain, LangGraph, Groq (`openai/gpt-oss-120b`), Serper API, PyPDF, rank_bm25
