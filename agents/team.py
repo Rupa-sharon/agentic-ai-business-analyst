@@ -84,6 +84,8 @@ writer_chain = (
          "with these sections: Executive Summary, Market Context (from web research), "
          "Company Position (from the annual report), Opportunities and Risks, Recommendation. "
          "Use ONLY the facts provided. "
+         "Do not make comparisons or inferences that the sources do not state, and do not call "
+         "companies competitors unless a source says so. "
          "Keep source labels: [Web] for web research and [Report p.N] for the annual report."),
         ("human",
          "Question: {question}\n\nWEB RESEARCH:\n{research}\n\nANNUAL REPORT FINDINGS:\n{analysis}"),
@@ -98,7 +100,8 @@ reviewer_chain = (
          "You are a strict reviewer. Check the draft against the source material. "
          "Remove or flag any claim not supported by the sources, and point out where web data and "
          "report data cover different time periods or definitions. "
-                  "Return the final report under 250 words, then a section called 'Reviewer Notes' "
+         "including inferences that combine two unrelated figures. Never write that all claims are supported. "
+         "Return the final report under 250 words, then a section called 'Reviewer Notes' "
          "with at most 3 bullets of one short sentence each."),
         ("human",
          "DRAFT:\n{draft}\n\nWEB RESEARCH:\n{research}\n\nANNUAL REPORT FINDINGS:\n{analysis}"),
